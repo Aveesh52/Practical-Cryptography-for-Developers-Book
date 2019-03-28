@@ -2,7 +2,11 @@
 
 **Asymmetric key cryptosystems / public-key cryptosystems **\(like [**RSA**](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29), [**elliptic curve cryptography \(ECC\)**](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography), [**Diffie-Hellman**](https://en.wikipedia.org/wiki/Diffie–Hellman_key_exchange), [**ElGamal**](https://en.wikipedia.org/wiki/ElGamal_encryption), [**McEliece**](https://en.wikipedia.org/wiki/McEliece_cryptosystem), [**NTRU**](https://en.wikipedia.org/wiki/NTRU) and others\) use a pair of mathematically linked keys: **public key** \(encryption key\) and **private key** \(decryption key\).
 
-The asymmetric key cryptosystems provide **key-pair generation** \(private + public key\), **encryption algorithms** \(asymmetric key ciphers and encryption schemes like **RSA-OAEP** and **ECIES**\), **digital signature algorithms** \(like **DSA**, **ECDSA** and **EdDSA**\) and **key exchange algorithms** \(like **DHKE** and **ECDH**\).
+The asymmetric key cryptosystems provide 
+* **key-pair generation** \(private + public key\),
+* **encryption algorithms** \(asymmetric key ciphers and encryption schemes like **RSA-OAEP** and **ECIES**\), 
+* **digital signature algorithms** \(like **DSA**, **ECDSA** and **EdDSA**\) and  
+* **key exchange algorithms** \(like **DHKE** and **ECDH**\).
 
 A message **encrypted** by the **public key** is later **decrypted** by the **private key**. A message **signed** by the **private key** is later **verified** by the **public key**. The **public key** is typically shared with everyone, while the **private key** is kept secret. Calculating the private key from its corresponding public key is by design computationally infeasible.
 
@@ -11,7 +15,7 @@ A message **encrypted** by the **public key** is later **decrypted** by the **pr
 Well-known **public-key cryptosystems** are: [**RSA**](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29), [**ECC**](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography), [**ElGamal**](https://en.wikipedia.org/wiki/ElGamal_encryption), [**DHKE**](https://en.wikipedia.org/wiki/Diffie–Hellman_key_exchange), [**ECDH**](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie–Hellman), [**DSA**](https://en.wikipedia.org/wiki/Digital_Signature_Algorithm), [**ECDSA**](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm), [**EdDSA**](https://en.wikipedia.org/wiki/EdDSA), [**Schnorr signatures**](https://en.wikipedia.org/wiki/Schnorr_signature). Different public key cryptosystems may provide one or more of the following capabilities:
 
 * **Key-pair generation**: generate random pairs of private key + corresponding public key.
-* **Encryption **/ **decryption**: encrypt date by public key and decrypt data by private key \(often using a hybrid encryption scheme\).
+* **Encryption**/ **decryption**: encrypt date by public key and decrypt data by private key \(often using a hybrid encryption scheme\).
 * **Digital signatures** \(message authentication\): sign messages by private key and verify signatures by public key.
 * **Key-exchange algorithms**: securely exchange cryptographic key between two parties over insecure channel.
 
@@ -25,7 +29,7 @@ Most **public-key cryptosystems** \(like RSA, ECC, DSA, ECDSA and EdDSA\) are **
 
 ## Asymmetric Encryption Schemes
 
-**Asymmetric encryption** is more complicated than symmetric encryption, not only because it uses **public** and **private keys**, but because asymmetric encryption can encrypt / decrypt only small messages, which should be mapped to the underlying math of the public-key cryptosystem. Some cryptosystems \(like ECC\) do not provide directly encryption primitives, so more complex schemes should be used.
+**Asymmetric encryption** is more complicated than symmetric encryption, not only because it uses **public** and **private keys**, but because **asymmetric encryption can encrypt / decrypt only SMALL messages**, which should be mapped to the underlying math of the public-key cryptosystem. Some cryptosystems \(like ECC\) do not provide directly encryption primitives, so more complex schemes should be used.
 
 In the **RSA** system, the input message should be transformed to **big integer** \(e.g. using OAEP padding\), while in **ECC** the message cannot be directly encrypted and more complex encryption scheme is used, based on the elliptic-curve Diffie-Hellman Key Exchange \(ECDH\). It will be explained in details later in this chapter. Additionally, asymmetric ciphers are significantly slower than symmetric ciphers \(e.g. the RSA encryption is 1000 times slower than AES\).
 
@@ -45,7 +49,7 @@ Examples of such asymmetric encryption schemes are: [**RSA-OAEP**](https://en.wi
 
 ### Integrated Encryption Schemes
 
-[**Integrated encryption schemes \(IES\)**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) are modern public key encryption schemes, which combine symmetric ciphers, asymmetric ciphers and key-derivation algorithms to provide secure **public-key based encryption** \(PKE\). In EIS scheme asymmetric algorithms \(like RSA or ECC\) are used to encrypt or encapsulate a symmetric key, used later by symmetric ciphers \(like AES or ChaCha20\) to encrypt the input message. Some EIS schemes provide also message authentication. Examples of EIS schemes are [**DLIES**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) \(Discrete Logarithm Integrated Encryption Scheme\) and [**ECIES**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) \(Elliptic Curve Integrated Encryption Scheme\).
+[**Integrated encryption schemes \(IES\)**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) are modern public key encryption schemes, which combine symmetric ciphers, asymmetric ciphers and key-derivation algorithms to provide secure **public-key based encryption** \(PKE\). In EIS scheme asymmetric algorithms \(like RSA or ECC\) are used to encrypt or encapsulate a symmetric key, used later by symmetric ciphers \(like AES or ChaCha20\) to encrypt the input message. **Some EIS schemes provide also message authentication**. Examples of EIS schemes are [**DLIES**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) \(Discrete Logarithm Integrated Encryption Scheme\) and [**ECIES**](https://en.wikipedia.org/wiki/Integrated_Encryption_Scheme) \(Elliptic Curve Integrated Encryption Scheme\).
 
 ### Key Encapsulation Mechanisms \(KEMs\)
 
